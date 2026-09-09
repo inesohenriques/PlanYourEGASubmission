@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Time Estimator</title>
+  <title>EGA Submission Planner</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,44 +12,47 @@
       <div class="progress"><span id="progressBar"></span></div>
 
       <header>
-        <p class="eyebrow">Project estimator</p>
-        <h1>How long will your project take?</h1>
-        <p class="intro">Answer a few questions and we'll give you an estimated development time.</p>
+        <p class="eyebrow">EGA Submission Planner</p>
+        <h1>How will it take you to submit your data to EGA? This highly depends on your data type(s) and how much preparation you do in managing your data beforehand. </h1>
+        <p class="intro"> To help you better prepare for the submission. Answer a few questions and we'll give you an estimated submission time also a checklist of what you should have in place before contacting the Big Data Core.</p>
       </header>
 
       <form id="questionnaire">
         <fieldset>
-          <legend>1. What type of project is this?</legend>
-          <label><input type="radio" name="size" value="small" required> <span>Small</span><small>Simple website or small project</small></label>
-          <label><input type="radio" name="size" value="medium"> <span>Medium</span><small>Several pages or features</small></label>
-          <label><input type="radio" name="size" value="large"> <span>Large</span><small>Complex website or application</small></label>
+          <legend>1.1 Who performed the sequencing?</legend>
+          <label><input type="radio" name="size" value="small" required> <span>We outsourced the sequencing or sequenced the samples ourselves</span></label>
+          <label><input type="radio" name="size" value="medium"> <span>Single Cell Facility</span></label>
+          <label><input type="radio" name="size" value="medium"> <span>Our data was sequenced by the biobank</span></label>
         </fieldset>
 
         <fieldset>
-          <legend>2. How many pages/features do you need?</legend>
-          <label><input type="radio" name="pages" value="small" required> <span>1–3</span></label>
-          <label><input type="radio" name="pages" value="medium"> <span>4–10</span></label>
-          <label><input type="radio" name="pages" value="large"> <span>10+</span></label>
+          <legend>2. Do all the samples you plan to submit come from patients at the Máxima?</legend>
+          <label><input type="radio" name="pages" value="small" required> <span>Yes, All samples come from Máxima patients</span></label>
+          <label><input type="radio" name="pages" value="medium"> <span>No, part or all my samples come from external individuals</span></label>
         </fieldset>
 
         <fieldset>
-          <legend>3. Do you need authentication?</legend>
-          <label><input type="radio" name="auth" value="no" required> <span>No</span></label>
-          <label><input type="radio" name="auth" value="yes"> <span>Yes</span></label>
+          <legend>2.1 For your external samples, are you allowed to share and make the data available?</legend>
+          <label><input type="radio" name="auth" value="no" required> <span>I don't know</span></label>
+          <label><input type="radio" name="auth" value="yes"> <span>No</span></label>
+          <label><input type="radio" name="auth" value="yes"> <span>Yes, I have writen agreement of this</span></label>
         </fieldset>
 
         <fieldset>
-          <legend>4. How complex is the design?</legend>
-          <label><input type="radio" name="design" value="basic" required> <span>Basic</span><small>Clean, straightforward design</small></label>
-          <label><input type="radio" name="design" value="custom"> <span>Custom</span><small>Unique branding and layouts</small></label>
-          <label><input type="radio" name="design" value="high"> <span>Highly customized</span><small>Detailed interactions and bespoke UI</small></label>
+          <legend>3. What data types/libraries does your dataset include?</legend>
+          <label><input type="radio" name="design" value="basic" required> <span>Bulk sequencing</span><small>rna-seq, WES, WGS</small></label>
+          <label><input type="radio" name="design" value="custom"> <span>Spacial Sequencing</span><small>rna-seq,WES, WGS</small></label>
+          <label><input type="radio" name="design" value="high"> <span>Single cell Sequencing</span><small>Rna-seq, WES, WGS</small></label>
+           <label><input type="radio" name="design" value="high"> <span>Methylation array</span><small></small></label>
+           <label><input type="radio" name="design" value="high"> <span>Nanopore</span><small></small></label>
         </fieldset>
 
         <fieldset>
-          <legend>5. Do you need integrations?</legend>
-          <label><input type="radio" name="integrations" value="none" required> <span>None</span></label>
-          <label><input type="radio" name="integrations" value="some"> <span>1–2</span></label>
-          <label><input type="radio" name="integrations" value="many"> <span>Several</span></label>
+          <legend>4. How many samples are included in your dataset?</legend>
+          <label><input type="radio" name="integrations" value="none" required> <span>below 100</span></label>
+          <label><input type="radio" name="integrations" value="some"> <span>between 100 - 500 samples </span></label>
+          <label><input type="radio" name="integrations" value="many"> <span>between 500 - 1000 </span></label>
+          <label><input type="radio" name="integrations" value="many"> <span>above 1000 </span></label>
         </fieldset>
 
         <button type="submit">Get my estimate</button>

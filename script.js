@@ -20,11 +20,11 @@ function render(key){
 }
 function progress(n){$("progressText").textContent=`Question ${n} of 4`;$("progressBar").style.width=`${Math.min(100,n/4*100)}%`}
 function advance(key){
- if(key==='q1'&&state.q1==='no') return stop('You are not yet ready to submit your data.','Questionnaire STOPS.');
+ if(key==='q1'&&state.q1==='no') return stop('You are not yet ready to submit your data.','You don not have your data yet. Once you do, take the questionnaire again.');
  if(key==='q1'){progress(1);render('q11');return}
  if(key==='q11'){state.weeks=0;if(state.q11.includes('self'))state.weeks+=2;if(state.q11.includes('single'))state.weeks+=2;progress(2);render('q2');return}
  if(key==='q2'){if(state.q2==='external')state.weeks+=2;progress(2);render('q21');return}
- if(key==='q21'&&state.q21==='no') return stop('Questionnaire STOPS','Without authorization from the data/samples provider we are not allowed to proceed with the submission.');
+ if(key==='q21'&&state.q21==='no') return stop('We can not share this data','Without authorization from the data/samples provider we are not allowed to proceed with the submission. If applicable, you want to proceed with only Máxima patient data continue the survey');
  if(key==='q21'){progress(3);render('q3');return}
  if(key==='q3'){progress(4);render('q4');return}
  if(key==='q4'){state.weeks += ({'under100':0,'100-500':1,'500-1000':2,'1000+':3})[state.q4]||0;showResult();}

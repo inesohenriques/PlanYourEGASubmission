@@ -2,12 +2,12 @@ const baseWeeks = 8; // 2 months, used for the week calculation
 let state = {q1:null,q11:[],q2:null,q21:null,q3:[],q4:null,weeks:0};
 const $=id=>document.getElementById(id); const form=$("survey");
 const data={
- q1:{title:'1. Is the data already sequenced? (single choice)',opts:[['yes','Yes → Opens to 1.1'],['no','No → (Questionnaire STOPS)']]},
- q11:{title:'1.1 Who performed the sequencing? (multiple choice)',opts:[['self','We outsourced the sequencing or We sequenced it ourselves. + 2 weeks'],['single','Single Cell facility → + 2 weeks'],['diag','Data was sequenced by the biobank/genomicscore/diagnostics']]},
- q2:{title:'2. Do all the samples you plan to submit come from patients at the Máxima?',opts:[['maxima','Yes, all our samples belong to Maxima patients'],['external','No, part or all of our samples come from external individuals → Move to question 2.1 (+ 2 weeks)']]},
- q21:{title:'2.1 For your external samples, are you allowed to share and make the data available?',opts:[['unknown','I don’t know'],['no','No → (Questionnaire STOPS)'],['yes','Yes']]},
- q3:{title:'3. What data types/libraries does your dataset include?',opts:[['bulk','Bulk sequencing RNA-seq, WES, WGS, …'],['single','Single-cell sequencing (rna-seq, …)'],['spatial','Spatial sequencing'],['nano','Nanopore'],['methyl','Methylation data'],['other','Other?']]},
- q4:{title:'4. How many samples are included in your dataset?',opts:[['under100','Below 100'],['100-500','between 100 – 500 +1 week'],['500-1000','between 500 – 100 + 2 week'],['1000+','more than 1000 + 3 week']]}
+ q1:{title:'1. Is the data already sequenced?',opts:[['yes','Yes'],['no','No']]},
+ q11:{title:'2 Who performed the sequencing?',opts:[['self','We outsourced the sequencing or We sequenced it ourselves.'],['single','Single Cell facility'],['diag','Data was sequenced by the biobank']]},
+ q2:{title:'3. Do all the samples you plan to submit come from patients at the Máxima?',opts:[['maxima','Yes, all our samples belong to Maxima patients'],['external','No, part or all of our samples come from external individuals']]},
+ q21:{title:'4. For your external samples, are you allowed to share and make the resulting data available?',opts:[['unknown','I don’t know'],['no','No'],['yes','Yes']]},
+ q3:{title:'5. What data types/libraries does your dataset include?',opts:[['bulk','Bulk sequencing RNA-seq, WES, WGS, …'],['single','Single-cell sequencing (rna-seq, …)'],['spatial','Spatial sequencing'],['nano','Nanopore'],['methyl','Methylation data'],['other','Other?']]},
+ q4:{title:'6. How many samples are included in your dataset?',opts:[['under100','Below 100'],['100-500','between 100 – 500'],['500-1000','between 500 – 100'],['1000+','more than 1000']]}
 };
 const advice={single:'single-cell doesn’t fit always into our existing data model. It’s important that before we meet you have a good overview of how the samples where prepared. How were replicates handled, etc…',methyl:'Methylation data requires slightly more information! Pay attention to the needed metadata!'};
 function render(key){

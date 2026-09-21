@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Big Data Core submission readiness questionnaire">
+  <title>Data Submission Readiness Questionnaire</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top">Big Data Core</a>
+      <a href="#about">About</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">DATA SUBMISSION READINESS</p>
+          <h1>Are you ready to submit your dataset?</h1>
+          <p class="hero-copy">
+            Answer a few questions to estimate your submission timeline and get a
+            personalized checklist for your intake with the Big Data Core.
+          </p>
+          <a class="button button-primary" href="#questionnaire">Start questionnaire</a>
+        </div>
+        <div class="hero-card">
+          <div class="hero-number">~2 months</div>
+          <p>Normal submission timeline</p>
+          <div class="mini-line"></div>
+          <p class="muted">Additional time may be added depending on your dataset and submission circumstances.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="questionnaire">
+      <div class="container narrow">
+        <div class="section-heading">
+          <p class="eyebrow">QUESTIONNAIRE</p>
+          <h2>Tell us about your dataset</h2>
+          <p id="progressText">Question 1 of 4</p>
+          <div class="progress"><div id="progressBar"></div></div>
+        </div>
+
+        <form id="survey" novalidate>
+          <fieldset class="question-card active" data-step="1">
+            <legend>1. Is the data already sequenced?</legend>
+            <p class="help">Choose one option.</p>
+            <label class="choice">
+              <input type="radio" name="sequenced" value="yes">
+              <span>Yes</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="sequenced" value="no">
+              <span>No</span>
+            </label>
+            <div id="notReady" class="alert alert-danger hidden">
+              <strong>You are not yet ready to submit your data.</strong>
+              <p>When you receive, analyze and are in the process of writing your manuscript, fill out the questionnaire again.</p>
+            </div>
+          </fieldset>
+
+          <fieldset class="question-card hidden" data-step="1.1" id="q11">
+            <legend>1.1 Who performed the sequencing?</legend>
+            <p class="help">Select all that apply.</p>
+            <label class="choice checkbox">
+              <input type="checkbox" name="sequencing" value="outsourced">
+              <span>We outsourced the sequencing or we sequenced it ourselves <small>+2 weeks</small></span>
+            </label>
+            <label class="choice checkbox">
+              <input type="checkbox" name="sequencing" value="singlecell">
+              <span>Single Cell facility <small>+2 weeks</small></span>
+            </label>
+            <label class="choice checkbox">
+              <input type="checkbox" name="sequencing" value="diagnostics">
+              <span>Data was sequenced by the biobank / genomics core / diagnostics</span>
+            </label>
+          </fieldset>
+
+          <fieldset class="question-card hidden" data-step="2" id="q2">
+            <legend>2. Do all the samples you plan to submit come from patients at Máxima?</legend>
+            <label class="choice">
+              <input type="radio" name="origin" value="maxima">
+              <span>Yes, all our samples belong to Máxima patients</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="origin" value="someExternal">
+              <span>No, part of our samples come from external individuals <small>+2 weeks</small></span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="origin" value="allExternal">
+              <span>No, all my samples come from external individuals <small>+2 weeks</small></span>
+            </label>
+          </fieldset>
+
+          <fieldset class="question-card hidden" data-step="2.1" id="q21">
+            <legend>2.1 For your external samples, are you allowed to share and make the data available?</legend>
+            <label class="choice">
+              <input type="radio" name="sharing" value="unknown">
+              <span>I don't know</span>
+            </label>
+            <div id="sharingUnknown" class="alert alert-warning hidden">
+              Before submitting, make sure you have a data sharing agreement, or material sharing agreement that states what you are allowed to do with the data.
+            </div>
+            <label class="choice">
+              <input type="radio" name="sharing" value="no">
+              <span>No</span>
+            </label>
+            <div id="sharingNo" class="alert alert-danger hidden">
+              Without authorization from the data/samples provider we are not allowed to proceed with the submission. Reach out to the provider and request them to share the data on your behalf.
+            </div>
+            <label class="choice">
+              <input type="radio" name="sharing" value="yes">
+              <span>Yes</span>
+            </label>
+          </fieldset>
+
+          <fieldset class="question-card hidden" data-step="3" id="q3">
+            <legend>3. What data types / libraries does your dataset include?</legend>
+            <p class="help">Select all that apply.</p>
+            <label class="choice checkbox"><input type="checkbox" name="dataType" value="bulk"><span>Bulk sequencing: RNA-seq, WES, WGS, …</span></label>
+            <label class="choice checkbox"><input type="checkbox" name="dataType" value="singlecell"><span>Single-cell sequencing: RNA-seq, …</span></label>
+            <label class="choice checkbox"><input type="checkbox" name="dataType" value="spatial"><span>Spatial sequencing</span></label>
+            <label class="choice checkbox"><input type="checkbox" name="dataType" value="nanopore"><span>Nanopore</span></label>
+            <label class="choice checkbox"><input type="checkbox" name="dataType" value="methylation"><span>Methylation data <small>+2 weeks</small></span></label>
+            <label class="choice checkbox"><input type="checkbox" name="dataType" value="other"><span>Other</span></label>
+          </fieldset>
+
+          <fieldset class="question-card hidden" data-step="4" id="q4">
+            <legend>4. How many samples are included in your dataset?</legend>
+            <label class="choice"><input type="radio" name="samples" value="under100"><span>Below 100</span></label>
+            <label class="choice"><input type="radio" name="samples" value="100to500"><span>Between 100–500 <small>+1 week</small></span></label>
+            <label class="choice"><input type="radio" name="samples" value="500to1000"><span>Between 500–1000 <small>+2 weeks</small></span></label>
+            <label class="choice"><input type="radio" name="samples" value="over1000"><span>More than 1000 <small>+3 weeks</small></span></label>
+          </fieldset>
+
+          <div class="actions">
+            <button type="button" id="backBtn" class="button button-secondary hidden">Back</button>
+            <button type="button" id="nextBtn" class="button button-primary">Continue</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section results-section hidden" id="results">
+      <div class="container">
+        <div class="results-hero">
+          <p class="eyebrow">YOUR RESULT</p>
+          <h2>Congrats — you are ready to submit!</h2>
+          <p>Based on your answers, this is the recommended planning timeline for your submission.</p>
+          <div class="timeline">
+            <div>
+              <span class="timeline-label">Normal timeline</span>
+              <strong>2 months</strong>
+            </div>
+            <div class="plus">+</div>
+            <div>
+              <span class="timeline-label">Additional time</span>
+              <strong id="addedWeeks">0 weeks</strong>
+            </div>
+            <div class="equals">=</div>
+            <div class="total">
+              <span class="timeline-label">Plan for</span>
+              <strong id="totalTimeline">2 months</strong>
+            </div>
+          </div>
+          <p>
+            Considering the replies in your survey, we recommend that you reach out to the
+            Big Data Core with the timeline above.
+          </p>
+          <p class="muted">
+            Before you talk with the Big Data Core, make sure you send them the results of this survey
+            and have the requested information ready.
+          </p>
+          <button id="printBtn" class="button button-secondary">Print / save results</button>
+          <button id="restartBtn" class="button button-link">Start over</button>
+        </div>
+
+        <div class="results-grid">
+          <div class="result-card">
+            <h3>Submission checklist</h3>
+            <p class="muted">Before and during your intake, make sure you have the following ready.</p>
+            <div id="checklist"></div>
+          </div>
+          <div class="result-card">
+            <h3>Questions?</h3>
+            <p>Contact the Big Data Core if you need clarification before starting the submission process.</p>
+            <a class="button button-primary" href="mailto:bigdatacore@example.org">Contact Big Data Core</a>
+            <p class="small-note">Replace this email address with the real Big Data Core contact before publishing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="container narrow">
+        <p class="eyebrow">ABOUT</p>
+        <h2>What this questionnaire does</h2>
+        <p>
+          This tool provides a planning estimate based on the information entered by the submitter.
+          It is intended as a preparation aid and does not replace the formal intake process or
+          requirements from the Big Data Core.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>Big Data Core · Submission readiness questionnaire</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
